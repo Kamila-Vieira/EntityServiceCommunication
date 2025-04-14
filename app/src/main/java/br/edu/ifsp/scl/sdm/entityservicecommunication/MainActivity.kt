@@ -16,11 +16,12 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var incrementServiceIntent: Intent
     private var counter = 0
-    private val incrementBroadcastReceiver = object: BroadcastReceiver(){
+    private val incrementBroadcastReceiver = object : BroadcastReceiver() {
         override fun onReceive(context: Context?, intent: Intent?) {
-            intent?.getIntExtra("VALUE", -1)?.also{ value ->
+            intent?.getIntExtra("VALUE", -1)?.also { value ->
                 counter = value
-                Toast.makeText(this@MainActivity, "You clicked $counter times", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this@MainActivity, "You clicked $counter times", Toast.LENGTH_SHORT)
+                    .show()
             }
 
         }
@@ -31,7 +32,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(amb.root)
         incrementServiceIntent = Intent(this, IncrementService::class.java)
 
-        with (amb) {
+        with(amb) {
             mainTb.apply {
                 getString(R.string.app_name).also { setTitle(it) }
                 setSupportActionBar(this)
