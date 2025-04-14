@@ -15,7 +15,11 @@
         <service
             android:name=".IncrementBoundService"
             android:enabled="true"
-            android:exported="true" />
+            android:exported="true">
+            <intent-filter>
+                <action android:name= "br.edu.ifsp.scl.sdm.entityservicecommunication.IncrementBoundServiceInterface" />
+            </intent-filter>
+        </service>
         <service
             android:name=".IncrementService"
             android:enabled="true"
